@@ -118,18 +118,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func makeSlot(at position: CGPoint, isGood: Bool) {
-        var slotBase: SKSpriteNode
-        var slotGlow: SKSpriteNode
-        
-        if isGood {
-            slotBase = SKSpriteNode(imageNamed: "slotBaseGood")
-            slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
-            slotBase.name = "good"
-        } else {
-            slotBase = SKSpriteNode(imageNamed: "slotBaseBad")
-            slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
-            slotBase.name = "bad"
-        }
+        let slotBase: SKSpriteNode = isGood ? SKSpriteNode(imageNamed: "slotBaseGood") : SKSpriteNode(imageNamed: "slotBaseBad")
+        slotBase.name = isGood ? "good" : "bad"
+        let slotGlow: SKSpriteNode = isGood ? slotGlow = SKSpriteNode(imageNamed: "slotGlowGood") : SKSpriteNode(imageNamed: "slotGlowBad")
         
         slotBase.position = position
         slotGlow.position = position
